@@ -4,7 +4,9 @@ import com.hh.Conditional.MyImportBeanDefinitionRegistrar;
 import com.hh.Conditional.MyImportSelector;
 import com.hh.Conditional.WindowsConditional;
 import com.hh.bean.Person;
+import com.hh.bean.Yellow;
 import com.hh.bean.red;
+import com.sun.org.apache.bcel.internal.util.ClassPath;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Redefinable;
 import com.sun.xml.internal.messaging.saaj.util.RejectDoctypeSaxFilter;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +14,9 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import sun.awt.geom.AreaOp.EOWindOp;
 
 /**
 *author huangh
@@ -30,6 +34,7 @@ import org.springframework.stereotype.Component;
  *@ImportBeanDefinitionRegistrar
  *    手动自定义导入一个bean组件
  */
+@PropertySource("classpath:/name.properties")
 public class MainConfig2 {
   //    ConfigurableBeanFactory 类
   //    String SCOPE_SINGLETON = "singleton"; 单例模式（默认），创建ioc容器中自动 添加bean 运行方法 到容器，之后到容器中拿
@@ -54,4 +59,8 @@ public class MainConfig2 {
     return new Person("bill",65);
   }
 
+  @Bean
+  public Yellow yellow(){
+    return new Yellow();
+  }
 }

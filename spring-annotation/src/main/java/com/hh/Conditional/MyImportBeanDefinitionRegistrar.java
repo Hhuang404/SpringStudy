@@ -1,6 +1,6 @@
 package com.hh.Conditional;
 
-import com.hh.bean.yellow;
+import com.hh.bean.Yellow;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
@@ -18,7 +18,7 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
        boolean blue = beanDefinitionRegistry.containsBeanDefinition("com.hh.bean.blue");
     if (blue){
       //手动注册一个bean
-      RootBeanDefinition BeanDefinition = new RootBeanDefinition(yellow.class);
+      RootBeanDefinition BeanDefinition = new RootBeanDefinition(Yellow.class);
       beanDefinitionRegistry.registerBeanDefinition("yellow",BeanDefinition);
     }
   }
